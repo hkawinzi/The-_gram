@@ -1,7 +1,8 @@
-certifi==2019.9.11
-Django==1.11
+autopep8==1.4.4
+config==0.4.2
+dj-database-url==0.5.0
+Django==2.2.6
 django-bootstrap3==11.1.0
-pipenv==2018.11.26
+Pillow==5.1.0
+pycodestyle==2.5.0
 pytz==2019.3
-virtualenv==16.7.5
-virtualenv-clone==0.5.3
