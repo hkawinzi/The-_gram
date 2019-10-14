@@ -7,4 +7,12 @@ class Image(models.Model):
     Likes = models.IntegerField(default=0)
     Comments = models.CharField(max_length=300)
     
-   
+    def __str__(self):
+        return self.Image_name
+
+    def save_image(self):
+        self.save
+    
+    def delete_image(self):
+        image = Image.objects.all().delete()
+        return image
