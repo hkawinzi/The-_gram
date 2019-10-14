@@ -4,3 +4,6 @@ h1 {
     text-decoration: Italic text;
     font-size: 60px;
 }
+h2 {
+    text-align: inherit;
+}
