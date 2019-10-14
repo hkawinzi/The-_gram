@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+def __str__(self):
+        return f'{self.user.username} Profile'
 # Create your models here.
 class Image(models.Model):
     Image_name = models.CharField (max_length=100)
@@ -17,7 +18,8 @@ class Image(models.Model):
     def delete_image(self):
         image = Image.objects.all().delete()
         return image
-
+def __str__(self):
+        return f'{self.user.username} Profile'
 class Profile(models.Model):
     # creating a relationship with an existing user
     user = models.OneToOneField(User, on_delete=models.CASCADE)
