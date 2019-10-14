@@ -1,9 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-
+{% load bootstrap3 %}
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <title>{% block title %} Welcome {% endblock %}</title>
+    {% block styles %}
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/baseaccounts.css' %}" >
+    {% endblock %}
 </head>
 
 <body>
