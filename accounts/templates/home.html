@@ -1,15 +1,15 @@
-{% extends "blog/base.html" %}
+{% extends "accounts/base.html" %}
 {% block content %}
     {% for image in images %}
-        <article class="media content-section">
+        <blog class="media content-section">
           <div class="media-body">
-            <div class="article-metadata">
+            <div class="blog-metadata">
               <a class="mr-2" href="#">{{ image.name }}</a>
               <small class="text-muted">{{ image.date_posted|date:"F d, Y" }}</small>
             </div>
-            <h2><a class="article-title" href="#">{{ image.title }}</a></h2>
-            <p class="article-content">{{ image.content }}</p>
+            <h2><a class="blog-title" href="#">{{ image.title }}</a></h2>
+            <p class="blog-content">{{ image.content }}</p>
           </div>
-        </article>
+        </blog>
     {% endfor %}
 {% endblock content %}
