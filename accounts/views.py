@@ -10,4 +10,9 @@ class SignUp(generic.CreateView):
     success_url = reverse_lazy('login')
     template_name = 'signup.html'
 
+class Profile(models.Model):
+    # creating a relationship with an existing user
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    image = models.ImageField(default='default.jpg', upload_to= 'profile_pic')
+
 
