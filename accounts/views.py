@@ -2,6 +2,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views import generic
+from . models import Image
 
 
 # Create your views here.
@@ -10,9 +11,27 @@ class SignUp(generic.CreateView):
     success_url = reverse_lazy('login')
     template_name = 'signup.html'
 
-class Profile(models.Model):
-    # creating a relationship with an existing user
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    image = models.ImageField(default='default.jpg', upload_to= 'profile_pic')
+
+def register(request):
+    if request.method == 'POST':
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            messages.success(
+                request, f'Your account has been created! You are now able to log in')
+            return redirect('login')
+    else:
+        form = UserRegisterForm()
+    return render(request, 'users/register.html', {'form': form})
 
 
+# @login_required
+def profile(request):
+    return render(request, 'users/profile.html')
+
+def home(request):
+    context = {
+        'image': Image.objects.all()
+    }
+    return render(request, 'accounts/home.html', context)

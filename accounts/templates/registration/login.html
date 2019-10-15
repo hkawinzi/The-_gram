@@ -5,6 +5,12 @@
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Login</button>
+    <div class="form-group">
+        <button class="btn btn-outline-info" type="submit">Login</button>
+    </div>
 </form>
+<div class="border-top pt-3">
+    <small class="text-muted">
+       <h2>Need An Account? </h2> <a class="ml-2" href="{% url 'signup' %}">signup</a> <strong>Sign Up Now</strong>     </small>
+</div>
 {% endblock %}

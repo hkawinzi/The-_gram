@@ -1,19 +1,44 @@
 {% load bootstrap3 %}
 {% load static %}
-<head>
-    <meta charset="UTF-8">
-    <title>{% block title %} Welcome {% endblock %}</title>
-    {% block styles %}
-    {% bootstrap_css %}
-    <link rel="stylesheet" href="{% static 'css/baseaccounts.css' %}" >
-    {% endblock %}
+<!-- Required meta tags -->
+<meta charset="utf-8">
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/baseaccounts.css' %}">
+
+{% if title %}
+<title>Instagram - {{ title }}</title>
+{% else %}
+<title>Instagram</title>
+{% endif %}
 </head>
 
 <body>
-    <main>
-        {% block content %}
-        {% endblock %}
-    </main>
+    <header class="site-header">
+        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+            <div class="container">
+                <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">Django Blog</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
+                    aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarToggle">
+                    <div class="navbar-nav mr-auto">
+                        <a class="nav-item nav-link" href="{% url 'blog-home' %}">Home</a>
+                        <a class="nav-item nav-link" href="{% url 'blog-about' %}">About</a>
+                    </div>
+                    <!-- Navbar Right Side -->
+                    <div class="navbar-nav">
+                        {% if user.is_authenticated %}
+                        <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
+                        <a href="{% url 'logout' %}">Logout</a></p>
+                        {% else %}
+                        <a href="{% url 'login' %}">Login</a>
+                        <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+                        {% endif %}
+
+
 </body>
+
+</html>
 
 </html>

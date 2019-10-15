@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 
 def __str__(self):
@@ -12,6 +13,7 @@ class Image(models.Model):
     Image_caption = models.CharField(max_length=200)
     Likes = models.IntegerField(default=0)
     Comments = models.CharField(max_length=300)
+    date_posted = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return self.Image_name
